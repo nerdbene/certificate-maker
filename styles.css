@@ -1,0 +1,573 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.creator-info {
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.github-button {
+    background-color: #333;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.github-button:hover {
+    background-color: #444;
+    transform: translateY(-1px);
+}
+
+.app-name {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 80px auto 20px;
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+}
+
+.form-container {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.certificate-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    flex: 2;
+}
+
+.certificate {
+    --frame-color: #091f2f;
+    background: white;
+    width: 800px;
+    height: 600px;
+    padding: 40px;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.certificate * {
+    box-sizing: border-box;
+}
+
+.certificate-content {
+    position: relative;
+    z-index: 3;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.corner-decoration {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.top-right {
+    top: 20px;
+    right: 20px;
+    transform: rotate(90deg);
+}
+
+.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    transform: rotate(-90deg);
+}
+
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    transform: rotate(180deg);
+}
+
+.certificate[data-decoration="stars"] .corner-decoration::before {
+    content: "⭐";
+}
+
+.certificate[data-decoration="hearts"] .corner-decoration::before {
+    content: "❤️";
+}
+
+.certificate[data-decoration="award"] .corner-decoration::before {
+    content: "🏆";
+}
+
+.certificate[data-decoration="education"] .corner-decoration::before {
+    content: "📚";
+}
+
+.certificate[data-decoration="celebration"] .corner-decoration::before {
+    content: "🎉";
+}
+
+.certificate-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.certificate-header h1 {
+    font-family: 'Playfair Display', serif;
+    color: #333;
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+}
+
+.presented, .achievement-text {
+    font-size: 18px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.student-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: #333;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.achievement-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    color: #444;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.certificate-footer {
+    margin-top: auto;
+    position: relative;
+    width: 100%;
+}
+
+.signature-section {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 40px;
+    gap: 60px;
+}
+
+.signature, .date-section {
+    text-align: center;
+    min-width: 200px;
+}
+
+.signature-line {
+    width: 100%;
+    height: 1px;
+    background-color: #333;
+    margin-bottom: 5px;
+}
+
+.school-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.frame-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.decoration-element {
+    position: absolute;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.decoration-element.top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.decoration-element.top-right {
+    top: 20px;
+    right: 20px;
+}
+
+.decoration-element.bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+
+.decoration-element.bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Remove old frame styles */
+.certificate[data-frame] {
+    border: none;
+    box-shadow: none;
+}
+
+.certificate[data-frame]::before {
+    display: none;
+}
+
+/* Frame Styles */
+.certificate[data-frame="classic"] {
+    border: 20px solid var(--frame-color);
+}
+
+.certificate[data-frame="modern"] {
+    border: 3px solid var(--frame-color);
+    box-shadow: 0 0 0 15px white, 0 0 0 18px var(--frame-color);
+}
+
+.certificate[data-frame="elegant"] {
+    border: 10px double var(--frame-color);
+    box-shadow: 0 0 0 3px var(--frame-color);
+}
+
+.certificate[data-frame="vintage"] {
+    border: 15px solid var(--frame-color);
+    background-image: linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+                      linear-gradient(-45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.02) 75%),
+                      linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.02) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.certificate[data-frame="minimalist"] {
+    border: 2px solid var(--frame-color);
+    box-shadow: 0 0 0 10px white, 0 0 0 11px var(--frame-color);
+}
+
+.certificate[data-frame="art-deco"] {
+    border: 12px solid var(--frame-color);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.03) 10px, rgba(0,0,0,0.03) 20px);
+}
+
+.certificate[data-frame="floral"] {
+    border: 15px solid var(--frame-color);
+    border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="%23000"><path d="M24 4l4 4-4 4-4-4zm20 20l-4 4-4-4 4-4zm-40 0l4-4 4 4-4 4zm20 20l-4-4 4-4 4 4z"/></svg>') 25% round;
+}
+
+.certificate[data-frame="academic"] {
+    border: 8px solid var(--frame-color);
+    box-shadow: 0 0 0 2px white, 0 0 0 4px var(--frame-color),
+                0 0 0 8px white, 0 0 0 10px var(--frame-color);
+}
+
+.certificate[data-frame="playful"] {
+    border: 15px solid var(--frame-color);
+    border-radius: 20px;
+    background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 2px, transparent 0);
+    background-size: 20px 20px;
+}
+
+.certificate[data-frame="professional"] {
+    border: 5px solid var(--frame-color);
+    box-shadow: 0 0 0 1px var(--frame-color),
+                0 0 0 15px white,
+                0 0 0 16px var(--frame-color);
+}
+
+/* Decoration Styles */
+.decoration-element {
+    font-size: 24px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.decoration-laurel .decoration-element::before {
+    content: "🌿";
+}
+
+.decoration-academic .decoration-element::before {
+    content: "📚";
+}
+
+.decoration-flowers .decoration-element::before {
+    content: "🌸";
+}
+
+.decoration-ribbons .decoration-element::before {
+    content: "🎀";
+}
+
+.decoration-medals .decoration-element::before {
+    content: "🏅";
+}
+
+.decoration-scrolls .decoration-element::before {
+    content: "📜";
+}
+
+.decoration-geometric .decoration-element::before {
+    content: "⬡";
+}
+
+.decoration-confetti .decoration-element::before {
+    content: "✨";
+}
+
+.decoration-achievement .decoration-element::before {
+    content: "🏆";
+}
+
+/* Frame Color Presets */
+.color-picker-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#frameColorPicker {
+    width: 50px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#frameColor {
+    flex: 1;
+}
+
+/* Style Options Layout */
+.style-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.option-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+.option-group select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+/* Color Picker Styles */
+.color-picker-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+input[type="color"] {
+    width: 50px;
+    height: 35px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 4px;
+}
+
+#frameColorPreset {
+    flex: 1;
+}
+
+/* Medal Styles */
+.medal {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.medal.gold {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23FFD700" stroke="%23DAA520" stroke-width="2"/><circle cx="50" cy="50" r="35" fill="%23DAA520"/><text x="50" cy="65" text-anchor="middle" fill="%23FFD700" font-size="40">1</text></svg>');
+}
+
+.medal.silver {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23C0C0C0" stroke="%23A9A9A9" stroke-width="2"/><circle cx="50" cy="50" r="35" fill="%23A9A9A9"/><text x="50" cy="65" text-anchor="middle" fill="%23C0C0C0" font-size="40">2</text></svg>');
+}
+
+.medal.bronze {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23CD7F32" stroke="%23A0522D" stroke-width="2"/><circle cx="50" cy="50" r="35" fill="%23A0522D"/><text x="50" cy="65" text-anchor="middle" fill="%23CD7F32" font-size="40">3</text></svg>');
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+}
+
+@media print {
+    .certificate {
+        margin: 0;
+        page-break-inside: avoid;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+    
+    .form-container, .navbar {
+        display: none;
+    }
+}

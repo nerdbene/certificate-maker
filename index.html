@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Maker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-left">
+                <span class="emoji">🎓</span>
+                <span class="app-name">Certificate Maker</span>
+                <a href="https://github.com/nerdbene/certificate-maker" class="github-button" target="_blank">
+                    <i class="fab fa-github"></i>
+                    Source Code
+                </a>
+            </div>
+            <div class="nav-right">
+                <span class="creator-info">by Bene - 2024</span>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="form-container">
+            <h2>Let's have fun!</h2>
+            <form id="certificateForm">
+                <div class="form-group">
+                    <label for="studentName">Student Name:</label>
+                    <input type="text" id="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="achievement">Achievement/Award:</label>
+                    <input type="text" id="achievement" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="teacherName">Teacher Name:</label>
+                    <input type="text" id="teacherName" required>
+                </div>
+                <div class="form-group">
+                    <label for="schoolName">School Name:</label>
+                    <input type="text" id="schoolName" required>
+                </div>
+                <div class="form-group">
+                    <label for="frameStyle">Frame Style:</label>
+                    <select id="frameStyle" required>
+                        <option value="classic">Classic Border</option>
+                        <option value="modern">Modern Border</option>
+                        <option value="elegant">Elegant Border</option>
+                        <option value="vintage">Vintage Border</option>
+                        <option value="minimalist">Minimalist Border</option>
+                        <option value="art-deco">Art Deco Border</option>
+                        <option value="floral">Floral Border</option>
+                        <option value="academic">Academic Border</option>
+                        <option value="playful">Playful Border</option>
+                        <option value="professional">Professional Border</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="frameColor">Frame Color:</label>
+                    <div class="color-picker-container">
+                        <select id="frameColor">
+                            <option value="#091f2f">Classic Blue</option>
+                            <option value="#2c5f2d">Forest Green</option>
+                            <option value="#862d2d">Deep Red</option>
+                            <option value="#4b0082">Royal Purple</option>
+                            <option value="#daa520">Antique Gold</option>
+                            <option value="#4682b4">Steel Blue</option>
+                            <option value="#8b4513">Rich Brown</option>
+                            <option value="#2e8b57">Emerald Green</option>
+                            <option value="#800020">Burgundy</option>
+                            <option value="#000000">Classic Black</option>
+                        </select>
+                        <input type="color" id="frameColorPicker" value="#091f2f">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="decorationStyle">Decoration Style:</label>
+                    <select id="decorationStyle" required>
+                        <option value="none">No Decoration</option>
+                        <option value="stars">Stars ⭐</option>
+                        <option value="laurel">Laurel Wreath 🌿</option>
+                        <option value="academic">Academic Icons 📚</option>
+                        <option value="flowers">Flowers 🌸</option>
+                        <option value="ribbons">Ribbons 🎀</option>
+                        <option value="medals">Medals 🏅</option>
+                        <option value="scrolls">Scrolls 📜</option>
+                        <option value="geometric">Geometric ⬡</option>
+                        <option value="confetti">Confetti ✨</option>
+                        <option value="achievement">Achievement 🏆</option>
+                    </select>
+                </div>
+                <button type="button" onclick="generatePDF()">Generate Certificate</button>
+            </form>
+        </div>
+
+        <div class="certificate-container">
+            <div id="certificate" class="certificate">
+                <div class="certificate-header">
+                    <div class="corner-decoration top-left"></div>
+                    <div class="corner-decoration top-right"></div>
+                    <h1>Certificate of Achievement</h1>
+                </div>
+                <div class="certificate-content">
+                    <p class="presented">This is to certify that</p>
+                    <p class="student-name" id="certStudentName">Student Name</p>
+                    <p class="achievement-text">has successfully demonstrated</p>
+                    <p class="achievement-name" id="certAchievement">Achievement</p>
+                    <div class="certificate-footer">
+                        <div class="corner-decoration bottom-left"></div>
+                        <div class="corner-decoration bottom-right"></div>
+                        <div class="signature-section">
+                            <div class="signature">
+                                <div class="signature-line"></div>
+                                <p id="certTeacherName">Teacher Name</p>
+                                <p class="title">Teacher</p>
+                            </div>
+                            <div class="date-section">
+                                <div class="signature-line"></div>
+                                <p id="certDate">Date</p>
+                            </div>
+                        </div>
+                        <p class="school-name" id="certSchoolName">School Name</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
